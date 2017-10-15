@@ -1,0 +1,18 @@
+<div class = 'divBordered'>
+	<a [routerLink]="['']">List</a>  --  <a [routerLink] = "['addplayer']">Add Player</a>
+	<form name = 'myForm' (submit) = submitForm($event) #myForm="ngForm" >
+		<div class = 'errCheck'>
+			<div *ngIf = '!myForm.valid'>
+				Name must be at least 8 characters long
+			</div>
+		</div>
+		Name: <input name = 'name' #name = 'ngModel' [(ngModel)] = 'player.name' type="text" required minlength='8'><br>
+		Position: <input name = 'position' #position = 'ngModel' [(ngModel)] = 'player.position' type="text"> <br>
+		<input type="submit" [disabled]='!myForm.valid' [ngClass]="{'btn-danger': !myForm.valid, 'btn-success':myForm.valid}">
+
+	</form>
+
+
+	{{myForm.valid}}
+</div>
+

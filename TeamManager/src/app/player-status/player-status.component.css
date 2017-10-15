@@ -1,0 +1,33 @@
+.green{
+	background-color: #ade88d;
+}
+.red{
+	background-color: #ff6060;
+}
+.yellow{
+	background-color: #ede86f;
+}
+
+
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #b8dba6;
+}
+
+
+.wrap{
+	border: solid black 2px;
+	margin-left: 10px;
+	padding: 5px;
+	background-color: linen;
+	width:70%;
+	max-width: 100%
+
+}
+.table{
+	/*display: block;*/
+	width: 100%;
+}
+.colorBox{
+	width: 200px;
+}

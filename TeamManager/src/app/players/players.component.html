@@ -1,0 +1,30 @@
+<div class = 'divBordered'>
+	<a [routerLink]="['']">List</a>  --  <a [routerLink] = "['/addplayer']">Add Player</a> <br><br><br>
+	<h3>{{serverMessage}}</h3>
+	<table class = 'table-striped table table-bordered table-hover table-condensed'>
+		<tr>
+			<th>Player Name</th>
+			<th>Preferred Position</th>
+			<th>Actions</th>
+		</tr>
+		<tr *ngFor='let player of players'>
+			<td> <a [routerLink]="['edit', player._id]">{{player.name | uppercase}}</a> </td>
+			<td>{{player.position}}</td>
+			<td><a (click)=deletePlayer(player)><button class='button btn-danger'>Delete</button></a></td>
+			
+
+		</tr>
+
+
+
+	</table>
+<!-- 
+
+	<table>
+		<tr *ngFor = 'let player of players'>
+			<td>{{player.name}}</td>
+			<td>{{player.status |json}}</td>
+		</tr>
+	</table> -->
+
+</div>

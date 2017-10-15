@@ -1,0 +1,41 @@
+<div class='wrap'>
+	<a [routerLink]="['/status',0]">Game 1</a> - <a [routerLink]="['/status',1]">Game 2</a> - <a [routerLink]="['/status',2]">Game 3</a> <br><br><br>
+	<div class='statusDiv'>
+		{{serverMessage}}
+
+	</div>
+
+
+	<h1>Player Status For Game {{id+1}}</h1>
+	<table class ='table table-condensed table-striped table-hover table-bordered'>
+		<tr>
+			<th>Name</th>
+			<th>Change Status</th>
+			<th>Status</th>
+		</tr>
+		<tr *ngFor = 'let player of players'>
+			<td>{{player.name}}</td>
+			
+
+<!-- 			<td  style= 'color:orange;' *ngIf = 'player.status[id].gameStatus == 0'>{{player.name}}</td>
+
+			<td style='color:green' *ngIf = 'player.status[id].gameStatus == 1'>{{player.name}}</td>
+
+			<td style='color:red'  *ngIf = 'player.status[id].gameStatus == 2'>{{player.name}}</td> -->
+
+
+
+
+
+			<td> <button (click) = 'play(player._id)' [ngClass]="{'green':(player.status[id].gameStatus==1)}">Playing</button><button (click)='bench(player._id)'  [ngClass]="{'red':(player.status[id].gameStatus==2)}">Benched</button><button (click) = 'undecide(player._id)' [ngClass]="{'yellow':(player.status[id].gameStatus==0)}">Undecided</button></td>
+
+			<td  class = 'colorBox btn-warning' *ngIf = 'player.status[id].gameStatus == 0'>UNDECIDED</td>
+
+			<td class = 'colorBox btn-success' *ngIf = 'player.status[id].gameStatus == 1'>PLAYING</td>
+
+			<td class = 'colorBox btn-danger'  *ngIf = 'player.status[id].gameStatus == 2'>BENCHED</td>
+		</tr>
+
+
+	</table>
+</div>

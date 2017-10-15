@@ -33,6 +33,6 @@ require('./server/config/routes.js')(app);
 
 
 
-app.listen(8000, function() {
-  console.log("listening on port 8000");
+app.listen(8010, function() {
+  console.log("listening on port 8010");
 })

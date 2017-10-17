@@ -8,7 +8,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\nbody{\n\tbackground-color: #939393;\n}", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\nbody{\n\t/*background-color: ;*/\n}\n\n/*greyish #939393*/", ""]);
 
 // exports
 

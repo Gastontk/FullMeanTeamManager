@@ -194,7 +194,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "body{\n\tbackground-color: white;\n}", ""]);
 
 // exports
 
@@ -712,7 +712,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/players/players.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class = 'divBordered'>\n\t<a [routerLink]=\"['']\">List</a>  --  <a [routerLink] = \"['/addplayer']\">Add Player</a> <br><br><br>\n\t<h3>{{serverMessage}}</h3>\n\t<table class = 'table-striped table table-bordered table-hover table-condensed'>\n\t\t<tr>\n\t\t\t<th>Player Name</th>\n\t\t\t<th>Preferred Position</th>\n\t\t\t<th>Actions</th>\n\t\t</tr>\n\t\t<tr *ngFor='let player of players'>\n\t\t\t<td> <a [routerLink]=\"['edit', player._id]\">{{player.name | uppercase}}</a> </td>\n\t\t\t<td>{{player.position}}</td>\n\t\t\t<td><a (click)=deletePlayer(player)><button class='button btn-danger'>Delete</button></a></td>\n\t\t\t\n\n\t\t</tr>\n\n\n\n\t</table>\n<!-- \n\n\t<table>\n\t\t<tr *ngFor = 'let player of players'>\n\t\t\t<td>{{player.name}}</td>\n\t\t\t<td>{{player.status |json}}</td>\n\t\t</tr>\n\t</table> -->\n\n</div>\n"
+module.exports = "<div class = 'divBordered'>\n\t<a [routerLink]=\"['']\">List</a>  --  <a [routerLink] = \"['/addplayer']\">Add Player</a> <br><br><br>\n\t<!-- <h3>{{serverMessage}}</h3> -->\n\t<table class = 'table-striped table table-bordered table-hover table-condensed'>\n\t\t<tr>\n\t\t\t<th>Player Name</th>\n\t\t\t<th>Preferred Position</th>\n\t\t\t<th>Actions</th>\n\t\t</tr>\n\t\t<tr *ngFor='let player of players'>\n\t\t\t<td> <a [routerLink]=\"['edit', player._id]\">{{player.name | uppercase}}</a> </td>\n\t\t\t<td>{{player.position}}</td>\n\t\t\t<td><a (click)=deletePlayer(player)><button class='button btn-danger'>Delete</button></a></td>\n\t\t\t\n\n\t\t</tr>\n\n\n\n\t</table>\n<!-- \n\n\t<table>\n\t\t<tr *ngFor = 'let player of players'>\n\t\t\t<td>{{player.name}}</td>\n\t\t\t<td>{{player.status |json}}</td>\n\t\t</tr>\n\t</table> -->\n\n</div>\n"
 
 /***/ }),
 

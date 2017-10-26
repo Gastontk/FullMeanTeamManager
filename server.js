@@ -26,9 +26,9 @@ require('./server/config/mongoose.js');
 
 
 //Modified for default to be Angular app
-app.get('/', function(req, res){
-	res.render('/index');
-})
+// app.get('/', function(req, res){
+// 	res.render('/index');
+// })
 require('./server/config/routes.js')(app);
 
 

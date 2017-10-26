@@ -1,23 +1,33 @@
-<div class = 'divBordered'>
+<div class = 'container'>
+    <div class="row">
+	<div>
+  <div class = 'divBordered col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+
+
 	<a [routerLink]="['']">List</a>  --  <a [routerLink] = "['/addplayer']">Add Player</a> <br><br><br>
 	<!-- <h3>{{serverMessage}}</h3> -->
-	<table class = 'table-striped table table-bordered table-hover table-condensed'>
-		<tr>
-			<th>Player Name</th>
-			<th>Preferred Position</th>
-			<th>Actions</th>
-		</tr>
-		<tr *ngFor='let player of players'>
-			<td> <a [routerLink]="['edit', player._id]">{{player.name | uppercase}}</a> </td>
-			<td>{{player.position}}</td>
-			<td><a (click)=deletePlayer(player)><button class='button btn-danger'>Delete</button></a></td>
-			
 
-		</tr>
+			<table class = 'table table-responsive table-striped table table-bordered table-hover table-condensed '>
+				<tr>
+					<th>Player Name</th>
+					<th>Preferred Position</th>
+					<th>Actions</th>
+				</tr>
+				<tr *ngFor='let player of players'>
+					<td> <a [routerLink]="['/edit', player._id]">{{player.name | uppercase}}</a> </td>
+					<td>{{player.position}}</td>
+					<td><a (click)=deletePlayer(player)><button class='button btn-danger'>Delete</button></a></td>
+					
+
+				</tr>
 
 
 
-	</table>
+			</table>
+		</div>
+	  </div>
+	</div>
 <!-- 
 
 	<table>

@@ -1,11 +1,17 @@
-<form (submit)="modPlayerInfo()" name = 'myForm' #myForm ='ngForm' >
-	Name: <input type="text" name='name' #name='ngModel' [(ngModel)] = 'player.name'><br>
-	Position:  <input type="text" name = 'position' #position = 'ngModel' [(ngModel)]='player.position'><br>
-	<input type="submit">
-	
+<div class="container">
+	<div class="row">
+		<form class = 'form' (submit)="modPlayerInfo()" name = 'myForm' #myForm ='ngForm' >
+			Name: <input type="text" name='name' #name='ngModel' [(ngModel)] = 'player.name'><br>
+			Position:  <input type="text" name = 'position' #position = 'ngModel' [(ngModel)]='player.position'><br>
+			<input type="submit">
+			
 
 
-</form>
+		</form>
+	</div>
+</div>
+
+
 
 
 <!-- {{players | json}} <br> <br><br>

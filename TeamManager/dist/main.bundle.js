@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/add-player/add-player.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class = 'divBordered'>\n\t<a [routerLink]=\"['']\">List</a>  --  <a [routerLink] = \"['addplayer']\">Add Player</a>\n\t<form name = 'myForm' (submit) = submitForm($event) #myForm=\"ngForm\" >\n\t\t<div class = 'errCheck'>\n\t\t\t<div *ngIf = '!myForm.valid'>\n\t\t\t\tName must be at least 8 characters long\n\t\t\t</div>\n\t\t</div>\n\t\tName: <input name = 'name' #name = 'ngModel' [(ngModel)] = 'player.name' type=\"text\" required minlength='8'><br>\n\t\tPosition: <input name = 'position' #position = 'ngModel' [(ngModel)] = 'player.position' type=\"text\"> <br>\n\t\t<input type=\"submit\" [disabled]='!myForm.valid' [ngClass]=\"{'btn-danger': !myForm.valid, 'btn-success':myForm.valid}\">\n\n\t</form>\n\n\n\t{{myForm.valid}}\n</div>\n\n"
+module.exports = "<div class = 'container'>\n\t<div class=\"row\">\n\t\t<div class = 'divBordered col-lg-6 col-md-6 col-sm-12 col-xs-12'>\n\t\t\t<a [routerLink]=\"['']\">List</a>  --  <a [routerLink] = \"['addplayer']\">Add Player</a>\n\n\t\t\t<form name = 'myForm' (submit) = submitForm($event) #myForm=\"ngForm\" >\n\t\t\t\t<div class = 'errCheck'>\n\t\t\t\t\t<div *ngIf = '!myForm.valid'>\n\t\t\t\t\t\tName must be at least 8 characters long\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\tName: <input name = 'name' #name = 'ngModel' [(ngModel)] = 'player.name' type=\"text\" required minlength='8'><br>\n\t\t\t\tPosition: <input name = 'position' #position = 'ngModel' [(ngModel)] = 'player.position' type=\"text\"> <br>\n\t\t\t\t<input type=\"submit\" [disabled]='!myForm.valid' [ngClass]=\"{'btn-danger': !myForm.valid, 'btn-success':myForm.valid}\">\n\n\t\t\t</form>\n\n\n\t\t<!-- \t{{myForm.valid}} -->\n\t\t</div>\n\n\t</div>\n</div>\n\n"
 
 /***/ }),
 
@@ -325,7 +325,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/edit-player/edit-player.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form (submit)=\"modPlayerInfo()\" name = 'myForm' #myForm ='ngForm' >\n\tName: <input type=\"text\" name='name' #name='ngModel' [(ngModel)] = 'player.name'><br>\n\tPosition:  <input type=\"text\" name = 'position' #position = 'ngModel' [(ngModel)]='player.position'><br>\n\t<input type=\"submit\">\n\t\n\n\n</form>\n\n\n<!-- {{players | json}} <br> <br><br>\n{{id}}\n<br><br>\n{{player.name}} -->\n"
+module.exports = "<div class=\"container\">\n\t<div class=\"row\">\n\t\t<form class = 'form' (submit)=\"modPlayerInfo()\" name = 'myForm' #myForm ='ngForm' >\n\t\t\tName: <input type=\"text\" name='name' #name='ngModel' [(ngModel)] = 'player.name'><br>\n\t\t\tPosition:  <input type=\"text\" name = 'position' #position = 'ngModel' [(ngModel)]='player.position'><br>\n\t\t\t<input type=\"submit\">\n\t\t\t\n\n\n\t\t</form>\n\t</div>\n</div>\n\n\n\n\n<!-- {{players | json}} <br> <br><br>\n{{id}}\n<br><br>\n{{player.name}} -->\n"
 
 /***/ }),
 
@@ -445,7 +445,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/player-status/player-status.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class='wrap'>\n\t<a [routerLink]=\"['/status',0]\">Game 1</a> - <a [routerLink]=\"['/status',1]\">Game 2</a> - <a [routerLink]=\"['/status',2]\">Game 3</a> <br><br><br>\n\t<div class='statusDiv'>\n\t\t{{serverMessage}}\n\n\t</div>\n\n\n\t<h1>Player Status For Game {{id+1}}</h1>\n\t<table class ='table table-condensed table-striped table-hover table-bordered'>\n\t\t<tr>\n\t\t\t<th>Name</th>\n\t\t\t<th>Change Status</th>\n\t\t\t<th>Status</th>\n\t\t</tr>\n\t\t<tr *ngFor = 'let player of players'>\n\t\t\t<td>{{player.name}}</td>\n\t\t\t\n\n<!-- \t\t\t<td  style= 'color:orange;' *ngIf = 'player.status[id].gameStatus == 0'>{{player.name}}</td>\n\n\t\t\t<td style='color:green' *ngIf = 'player.status[id].gameStatus == 1'>{{player.name}}</td>\n\n\t\t\t<td style='color:red'  *ngIf = 'player.status[id].gameStatus == 2'>{{player.name}}</td> -->\n\n\n\n\n\n\t\t\t<td> <button (click) = 'play(player._id)' [ngClass]=\"{'green':(player.status[id].gameStatus==1)}\">Playing</button><button (click)='bench(player._id)'  [ngClass]=\"{'red':(player.status[id].gameStatus==2)}\">Benched</button><button (click) = 'undecide(player._id)' [ngClass]=\"{'yellow':(player.status[id].gameStatus==0)}\">Undecided</button></td>\n\n\t\t\t<td  class = 'colorBox btn-warning' *ngIf = 'player.status[id].gameStatus == 0'>UNDECIDED</td>\n\n\t\t\t<td class = 'colorBox btn-success' *ngIf = 'player.status[id].gameStatus == 1'>PLAYING</td>\n\n\t\t\t<td class = 'colorBox btn-danger'  *ngIf = 'player.status[id].gameStatus == 2'>BENCHED</td>\n\t\t</tr>\n\n\n\t</table>\n</div>"
+module.exports = "\n\n\n\t<div class='wrap \\'>\n\t\t<a [routerLink]=\"['/status',0]\">Game 1</a> - <a [routerLink]=\"['/status',1]\">Game 2</a> - <a [routerLink]=\"['/status',2]\">Game 3</a> <br><br><br>\n\t\t<div class='statusDiv'>\n\t\t\t{{serverMessage}}\n\n\t\t</div>\n\t<div class = \"container\">\n\n\t\t<div class='row'>\n\t\t<h1>Player Status For Game {{id+1}}</h1>\n\t\t<table class ='table-responsive table col-lg-12 col-md-12 col-sm-12 col-xs-12'>\n\t\t\t<tr>\n\t\t\t\t<th>Name</th>\n\t\t\t\t<th>Change Status</th>\n\t\t\t\t<th>Status</th>\n\t\t\t</tr>\n\t\t\t<tr *ngFor = 'let player of players'>\n\t\t\t\t<td>{{player.name}}</td>\n\t\t\t\t\n\n\t<!-- \t\t\t<td  style= 'color:orange;' *ngIf = 'player.status[id].gameStatus == 0'>{{player.name}}</td>\n\n\t\t\t\t<td style='color:green' *ngIf = 'player.status[id].gameStatus == 1'>{{player.name}}</td>\n\n\t\t\t\t<td style='color:red'  *ngIf = 'player.status[id].gameStatus == 2'>{{player.name}}</td> -->\n\n\n\n\n\n\t\t\t\t<td> <button (click) = 'play(player._id)' [ngClass]=\"{'green':(player.status[id].gameStatus==1)}\">Playing</button><button (click)='bench(player._id)'  [ngClass]=\"{'red':(player.status[id].gameStatus==2)}\">Benched</button><button (click) = 'undecide(player._id)' [ngClass]=\"{'yellow':(player.status[id].gameStatus==0)}\">Undecided</button></td>\n\n\t\t\t\t<td  class = 'colorBox btn-warning hidden-xs' *ngIf = 'player.status[id].gameStatus == 0'>UNDECIDED</td>\n\n\t\t\t\t<td class = 'colorBox btn-success hidden-xs' *ngIf = 'player.status[id].gameStatus == 1'>PLAYING</td>\n\n\t\t\t\t<td class = 'colorBox btn-danger hidden-xs'  *ngIf = 'player.status[id].gameStatus == 2'>BENCHED</td>\n\t\t\t</tr>\n\n\n\t\t</table>\n\t\t</div>\n\t  </div>\n\t</div>\n\n"
 
 /***/ }),
 
@@ -699,7 +699,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".table-hover tbody tr:hover td, .table-hover tbody tr:hover th {\n  background-color: #b8dba6;\n}\n\n\ntable{\n\tmax-width: 600px;\n\toverflow: hidden;\n  \ttext-overflow: ellipsis;\n \twhite-space: nowrap; \n}\n\n.divBordered{\n\tborder: solid black 2px;\n\tmargin-top: 20px;\n\tmargin-left: 10px;\n\tbackground-color: linen;\n\tpadding: 5px;\n\tmax-width: 70%\n}", ""]);
+exports.push([module.i, ".table-hover tbody tr:hover td, .table-hover tbody tr:hover th {\n  background-color: #b8dba6;\n}\n\n\ntable{\n\tmax-width: 600px;\n\toverflow: hidden;\n  \ttext-overflow: ellipsis;\n \twhite-space: nowrap; \n}\n\n.divBordered{\n\tborder: solid black 2px;\n/*\tmargin-top: 20px;\n\tmargin-left: 10px;\n\tbackground-color: linen;\n\tpadding: 5px;\n\tmax-width: 70%*/\n}", ""]);
 
 // exports
 
@@ -712,7 +712,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/players/players.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class = 'divBordered'>\n\t<a [routerLink]=\"['']\">List</a>  --  <a [routerLink] = \"['/addplayer']\">Add Player</a> <br><br><br>\n\t<!-- <h3>{{serverMessage}}</h3> -->\n\t<table class = 'table-striped table table-bordered table-hover table-condensed'>\n\t\t<tr>\n\t\t\t<th>Player Name</th>\n\t\t\t<th>Preferred Position</th>\n\t\t\t<th>Actions</th>\n\t\t</tr>\n\t\t<tr *ngFor='let player of players'>\n\t\t\t<td> <a [routerLink]=\"['edit', player._id]\">{{player.name | uppercase}}</a> </td>\n\t\t\t<td>{{player.position}}</td>\n\t\t\t<td><a (click)=deletePlayer(player)><button class='button btn-danger'>Delete</button></a></td>\n\t\t\t\n\n\t\t</tr>\n\n\n\n\t</table>\n<!-- \n\n\t<table>\n\t\t<tr *ngFor = 'let player of players'>\n\t\t\t<td>{{player.name}}</td>\n\t\t\t<td>{{player.status |json}}</td>\n\t\t</tr>\n\t</table> -->\n\n</div>\n"
+module.exports = "<div class = 'container'>\n    <div class=\"row\">\n\t<div>\n  <div class = 'divBordered col-lg-12 col-md-12 col-sm-12 col-xs-12'>\n\n\n\n\t<a [routerLink]=\"['']\">List</a>  --  <a [routerLink] = \"['/addplayer']\">Add Player</a> <br><br><br>\n\t<!-- <h3>{{serverMessage}}</h3> -->\n\n\t\t\t<table class = 'table table-responsive table-striped table table-bordered table-hover table-condensed '>\n\t\t\t\t<tr>\n\t\t\t\t\t<th>Player Name</th>\n\t\t\t\t\t<th>Preferred Position</th>\n\t\t\t\t\t<th>Actions</th>\n\t\t\t\t</tr>\n\t\t\t\t<tr *ngFor='let player of players'>\n\t\t\t\t\t<td> <a [routerLink]=\"['/edit', player._id]\">{{player.name | uppercase}}</a> </td>\n\t\t\t\t\t<td>{{player.position}}</td>\n\t\t\t\t\t<td><a (click)=deletePlayer(player)><button class='button btn-danger'>Delete</button></a></td>\n\t\t\t\t\t\n\n\t\t\t\t</tr>\n\n\n\n\t\t\t</table>\n\t\t</div>\n\t  </div>\n\t</div>\n<!-- \n\n\t<table>\n\t\t<tr *ngFor = 'let player of players'>\n\t\t\t<td>{{player.name}}</td>\n\t\t\t<td>{{player.status |json}}</td>\n\t\t</tr>\n\t</table> -->\n\n</div>\n"
 
 /***/ }),
 
@@ -743,7 +743,7 @@ var PlayersComponent = (function () {
         this._playerService = _playerService;
         this.serverMessage = 'Data Loading';
         this._playerService.getPlayers(function (response) {
-            // console.log('In component CONSTRUCTOR', response)
+            console.log('In component CONSTRUCTOR', response);
             _this.players = response.json();
             _this.serverMessage = 'Data loaded';
         });

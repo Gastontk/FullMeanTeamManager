@@ -21,7 +21,7 @@ export class PlayersComponent implements OnInit {
   	  // this.players = (this.player;
 
       this._playerService.getPlayers((response)=>{
-        // console.log('In component CONSTRUCTOR', response)
+        console.log('In component CONSTRUCTOR', response)
         this.players = response.json();
         this.serverMessage = 'Data loaded';
       })
